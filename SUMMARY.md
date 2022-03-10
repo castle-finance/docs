@@ -1,9 +1,8 @@
 # Table of contents
 
-* [Our Mission](README.md)
-* [Our Team](our-team.md)
+* [Castle Finance](README.md)
 
-## Our Products <a href="#products" id="products"></a>
+## Products
 
 * [Vault: DeFi Savings Account](products/vault-defi-savings-account/README.md)
   * [Program Structure](products/vault-defi-savings-account/program-structure.md)

@@ -1,7 +1,5 @@
 # Program Structure
 
-Github: [https://github.com/castle-finance/castle-vault](https://github.com/castle-finance/castle-vault)
-
 Functions in the program are created by bundling one or more instructions into a transaction. This document will first explain what each instruction does on its own and then how they are bundled together into various user-facing functions in the SDK.
 
 ### Instructions

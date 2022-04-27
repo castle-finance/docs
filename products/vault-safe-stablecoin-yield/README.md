@@ -18,8 +18,6 @@ We source yield from the following protocols:&#x20;
 
 Additional integrations with Mango, Saber, Mercurial, and others, are under development.
 
-<img src="https://lh5.googleusercontent.com/YklczSrnTOxmPOEO5h00OTbPhDn0KbHgYXi-l3295_xKyDPqrWZctK2ZWudJxlmP3voObHaIL7xH2kiydV7zFZezbzpGkPP-PjbiwD8-b_V5UyKVJDURh71ijae_g2QJ_PfHZZVF" alt="" data-size="original">
-
 ### Risk Management
 
 In order to minimize the likelihood of principal loss, Vault implements the following risk management measures:

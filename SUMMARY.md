@@ -16,6 +16,10 @@
     * [URLs and Addresses](products/vault-safe-stablecoin-yield/technical-reference/urls-and-addresses.md)
     * [Program Structure](products/vault-safe-stablecoin-yield/technical-reference/program-structure.md)
 
+## Integrations
+
+* [Technical Guide](integrations/technical-guide.md)
+
 ## Links
 
 * [We are Hiring!](https://jobs.castle.finance)

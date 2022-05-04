@@ -22,7 +22,7 @@
 
 ***
 
-* [Security (TODO)](security-todo.md)
+* [Security Policy](security-policy.md)
 
 ## Links
 

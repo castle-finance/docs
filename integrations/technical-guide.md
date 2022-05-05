@@ -8,11 +8,11 @@ description: >-
 
 ## Client-Side Integration
 
-Client-side integrations are powered by our [SDK](https://github.com/castle-finance/castle-vault/tree/dev/sdk), which lives alongside the program code in the Vault repository. The primary actions a user takes is `deposit` and `withdraw`.&#x20;
+Client-side integrations are powered by our [SDK](https://github.com/castle-finance/castle-vault/tree/dev/sdk), which lives alongside the program code in the Vault repository. The primary actions a user takes are `deposit` and `withdraw`.&#x20;
 
-The SDK exposes `deposit()` and `withdraw()`, both of abstract away intermediate instructions like creating ATAs, (un)wrapping sol, refreshing or reconciling the vault.&#x20;
+The SDK exposes `deposit()` and `withdraw()`, both abstract away intermediate instructions like creating ATAs, (un)wrapping sol, refreshing or reconciling the vault.&#x20;
 
-If you run into transaction size limits (for example: sending transactions as part of governance proposals that increases the bytes to over 1232), then you can split up certain instructions into their own transactions. Each section will provide code for both **single SDK call** and **multi-SDK call** cases.
+If you run into transaction size limits (for example: sending transactions as part of governance proposals that increase the bytes to over 1232), then you can split up certain instructions into their own transactions. Each section will provide code for both **single SDK call** and **multi-SDK call** cases.
 
 Here's the full list of instructions the vault contract expects:
 
@@ -22,6 +22,12 @@ Here's the full list of instructions the vault contract expects:
 4. `withdraw`: Sends LP tokens into the vault in exchange for reserve token assets
 
 ### Vault Client
+
+#### Installation
+
+`yarn add @castlefinance/vault-sdk`
+
+#### Usage
 
 The `VaultClient` contains static and member functions for loading information about a specific vault, along with all the necessary instructions for depositing and withdrawing.
 
@@ -59,17 +65,17 @@ _Note_: The refresh and deposit instructions need to be sent in the same transac
 #### Deposit (single SDK call)
 
 ```typescript
-// Get the users reserve token ATA
-const userReserveToken = await splToken.Token.getAssociatedTokenAddress(
+// Get the user's reserve token ATA
+const userReserveTokenAccount = await splToken.Token.getAssociatedTokenAddress(
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
-  vaultClient.getVaultState().reserveTokenMint,
-  reserveTokenOwner, // e.g. wallet.pubkey or DAO's account
+  vaultClient.getReserveTokenMint(),
+  reserveTokenAccountOwner, // e.g. wallet.pubkey or DAO's account
   true
 );
 
 // Deposit into the vault
-const sig = await vaultClient.deposit(wallet, amount, userReserveToken)
+const sig = await vaultClient.deposit(wallet, amount, userReserveTokenAccount)
 ```
 
 #### Deposit (multi-SDK call)
@@ -81,13 +87,13 @@ let createLpAcctIx: TransactionInstruction | undefined = undefined
 
 // Owner of the SPL Token account, e.g. the user or DAO. 
 // In this example we assume a wallet logged-in user.
-const reserveTokenOwner = wallet.publicKey
+const reserveTokenAccountOwner = wallet.publicKey
 
 const userLpTokenAccount = await Token.getAssociatedTokenAddress(
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
-  vaultClient.getVaultState().lpTokenMint,
-  reserveTokenOwner,
+  vaultClient.getLpTokenMint(),
+  reserveTokenAccountOwner,
   true
 )
 
@@ -100,9 +106,9 @@ if (userLpTokenAccountInfo == null) {
   createLpAcctIx = Token.createAssociatedTokenAccountInstruction(
     ASSOCIATED_TOKEN_PROGRAM_ID,
     TOKEN_PROGRAM_ID,
-    vaultClient.getVaultState().lpTokenMint,
+    vaultClient.getLpTokenMint(),
     userLpTokenAccount,
-    reserveTokenOwner,
+    reserveTokenAccountOwner,
     wallet.publicKey // payer
   )
 }
@@ -120,30 +126,20 @@ Refresh and Deposit into the Vault:
 const refreshIx = vaultClient.getRefreshIx()
 
 // Get the user reserve ATA
-const userReserveToken = await Token.getAssociatedTokenAddress(
+const userReserveTokenAccount = await Token.getAssociatedTokenAddress(
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
-  vaultClient.getVaultState().reserveTokenMint,
-  reserveTokenOwner,
-  true
+  vaultClient.getReserveTokenMint(),
+  reserveTokenAccountOwner,
+  true,
 )
 
 // Get the deposit instruction
-const depositIx = vaultClient.program.instruction.deposit(
+const depositIx = vaultClient.getDepositIx(
   new anchor.BN(amount),
-  {
-    accounts: {
-      vault: vaultClient.vaultId,
-      vaultAuthority: vaultClient.getVaultState().vaultAuthority,
-      vaultReserveToken: vaultClient.getVaultState().vaultReserveToken,
-      lpTokenMint: vaultClient.getVaultState().lpTokenMint,
-      userReserveToken: userReserveToken,
-      userLpToken: userLpTokenAccount,
-      userAuthority: reserveTokenOwner,
-      tokenProgram: TOKEN_PROGRAM_ID,
-      clock: SYSVAR_CLOCK_PUBKEY,
-    },
-  }
+  reserveTokenOwner,
+  userLpTokenAccount,
+  userReserveTokenAccount,
 )
 
 // Construct, sign, and send
@@ -194,7 +190,7 @@ let createReserveAcctIx: TransactionInstruction | undefined = undefined
 const userReserveTokenAccount = await Token.getAssociatedTokenAddress(
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
-  vaultClient.getVaultState().reserveTokenMint,
+  vaultClient.getReserveTokenMint(),
   lpTokenAccountOwner,
   true
 )
@@ -206,7 +202,7 @@ if (userReserveTokenAccountInfo == null) {
   createReserveAcctIx = Token.createAssociatedTokenAccountInstruction(
     ASSOCIATED_TOKEN_PROGRAM_ID,
     TOKEN_PROGRAM_ID,
-    vaultClient.getVaultState().reserveTokenMint,
+    vaultClient.getReserveTokenMint(),
     userReserveTokenAccount,
     lpTokenAccountOwner,
     wallet.publicKey
@@ -220,7 +216,7 @@ const refreshIx = vaultClient.getRefreshIx()
 const userLpTokenAccount = await Token.getAssociatedTokenAddress(
   ASSOCIATED_TOKEN_PROGRAM_ID,
   TOKEN_PROGRAM_ID,
-  vaultClient.getVaultState().lpTokenMint,
+  vaultClient.getLpTokenMint(),
   lpTokenAccountOwner,
   true
 )
@@ -229,19 +225,9 @@ const userLpTokenAccount = await Token.getAssociatedTokenAddress(
 // into the vault in exchange for the reserve token
 const withdrawIx = vaultClient.program.instruction.withdraw(
   new anchor.BN(amount),
-  {
-    accounts: {
-      vault: vaultClient.vaultId,
-      vaultAuthority: vaultClient.getVaultState().vaultAuthority,
-      userAuthority: lpTokenAccountOwner,
-      userLpToken: userLpTokenAccount,
-      userReserveToken: userReserveTokenAccount,
-      vaultReserveToken: vaultClient.getVaultState().vaultReserveToken,
-      lpTokenMint: vaultClient.getVaultState().lpTokenMint,
-      tokenProgram: TOKEN_PROGRAM_ID,
-      clock: SYSVAR_CLOCK_PUBKEY,
-    },
-  }
+  lpTokenAccountOwner,
+  userLpTokenAccount,
+  userReserveTokenAccount,
 )
 
 // Construct, sign, and send

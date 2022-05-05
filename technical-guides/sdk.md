@@ -4,7 +4,7 @@ description: >-
   UX
 ---
 
-# Technical Guide
+# SDK
 
 ## Client-Side Integration
 
@@ -24,6 +24,8 @@ Here's the full list of instructions the vault contract expects:
 ### Vault Client
 
 #### Installation
+
+SDK NPM: [https://www.npmjs.com/package/@castlefinance/vault-sdk](https://www.npmjs.com/package/@castlefinance/vault-sdk)
 
 `yarn add @castlefinance/vault-sdk`
 

@@ -13,15 +13,15 @@
 
 * [Vault: Safe Stablecoin Yield](products/vault-safe-stablecoin-yield.md)
 
-***
-
-* [Security Policy](security-policy.md)
-
 ## Technical Guides
 
 * [SDK](technical-guides/sdk.md)
 * [Program](technical-guides/program.md)
 * [Code, App URLs, and Program  Addresses](technical-guides/code-app-urls-and-program-addresses.md)
+
+***
+
+* [Security Policy](security-policy.md)
 
 ## Links
 

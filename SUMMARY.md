@@ -17,7 +17,7 @@
 
 * [SDK](technical-guides/sdk.md)
 * [Program](technical-guides/program.md)
-* [Code, App URLs, and Program  Addresses](technical-guides/code-app-urls-and-program-addresses.md)
+* [URLs and Addresses](technical-guides/urls-and-addresses.md)
 
 ***
 
@@ -26,7 +26,7 @@
 ## Links
 
 * [We are Hiring!](https://jobs.castle.finance)
-* [Website](http://castle.finance)
+* [Website](http://castle.finance/)
 * [Blog](https://medium.com/castle-finance/)
 * [Twitter](https://twitter.com/CastleFinance)
 * [Github](https://github.com/castle-finance/)

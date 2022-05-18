@@ -8,11 +8,7 @@
 Mainnet App
 {% endembed %}
 
-#### USDC
-
-Vault:&#x20;
-
-LP Token:&#x20;
+USDC Vault: 3tBqjyYtf9Utb1NNsx4o7AV1qtzHoxsMXgkmat3rZ3y6
 
 ### Devnet Parity
 
@@ -22,11 +18,7 @@ LP Token:&#x20;
 Devnet Parity App
 {% endembed %}
 
-#### SOL
-
-Vault:&#x20;
-
-LP Token:&#x20;
+SOL Vault: DT6AaP15L4ee56nGY55JAfBdhgWVdZqh7US2EqZwnQvH
 
 ### Devnet Staging
 
@@ -36,8 +28,4 @@ LP Token:&#x20;
 Devnet Staging App
 {% endembed %}
 
-#### SOL
-
-Vault:&#x20;
-
-LP Token:&#x20;
+SOL Vault: 7MXreZLSP1Xm9EiLvEf2gZKsQqeuyUHuL54vVSyvFfZi

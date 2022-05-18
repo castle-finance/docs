@@ -17,7 +17,7 @@
 
 * [SDK](technical-guides/sdk.md)
 * [Program](technical-guides/program.md)
-* [URLs and Addresses](technical-guides/urls-and-addresses.md)
+* [URLs and Addresses](technical-guides/code-app-urls-and-program-addresses.md)
 
 ***
 

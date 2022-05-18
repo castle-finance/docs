@@ -26,9 +26,13 @@ Also emits and anchor event containing the new allocations
 
 Required before any reconcile IX is called
 
-#### Refresh
+#### Refresh \[Jet | Port | Solend]
 
-Refreshes the reserves of all integrated lending markets, which is required before any deposit or withdrawal from them
+Refreshes the reserves of the given lending reserve, which is required before any deposit or withdrawal
+
+Calculates the value of the vault held in the given lending reserve, denominated in the reserve token
+
+#### Consolidate Refresh
 
 Calculates the total value of the vault, denominated in the reserve token. This is required before any deposit or withdrawal from the vault
 

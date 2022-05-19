@@ -4,9 +4,8 @@
 
 ## Getting Started
 
-* [Tutorial (TODO)](getting-started/tutorial-todo/README.md)
-  * [Castle App](getting-started/tutorial-todo/castle-app.md)
-  * [Realms](getting-started/tutorial-todo/realms.md)
+* [Realms for DAOs](getting-started/realms-for-daos.md)
+* [Castle App](getting-started/castle-app.md)
 * [FAQ (TODO)](getting-started/faq-todo.md)
 
 ## Products

@@ -6,7 +6,6 @@
 
 * [Realms for DAOs](getting-started/realms-for-daos.md)
 * [Castle App](getting-started/castle-app.md)
-* [FAQ (TODO)](getting-started/faq-todo.md)
 
 ## Products
 

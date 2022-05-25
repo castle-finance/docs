@@ -9,7 +9,7 @@
 
 ## Products
 
-* [Vault: Safe Stablecoin Yield](products/vault-safe-stablecoin-yield.md)
+* [Vault: Token Savings Account](products/vault-token-savings-account.md)
 
 ## Technical Guides
 

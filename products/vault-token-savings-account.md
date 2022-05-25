@@ -2,11 +2,11 @@
 description: Vault provides the safest yield for risk-conscious DAOs and their communities.
 ---
 
-# Vault: Safe Stablecoin Yield
+# Vault: Token Savings Account
 
 ### What is the Vault?
 
-The Castle Vault is an investment product for USD stablecoins that safely earns yield across the Solana ecosystem, similar to a money market fund in traditional finance. Minimizing risk of principal loss is prioritized over maximizing returns. DAOs utilize Vault for various goals, from funding operating expenditures to growing corporate savings accounts and protocol insurance funds.&#x20;
+The Castle Vault is a token savings account that safely earns yield across the Solana ecosystem, similar to a money market fund in traditional finance. Minimizing risk of principal loss is prioritized over maximizing returns. DAOs utilize Vault for various goals, from funding operating expenditures to growing corporate savings accounts and protocol insurance funds.&#x20;
 
 When stablecoins are deposited into Vault, they are forwarded to a diversified set of yield-earning sources. Every minute, the contract rebalances between sources to optimize the yield earned. Vault is built on top of the most reputable lending primitives in the Solana ecosystem.&#x20;
 
@@ -35,20 +35,3 @@ In order to minimize the likelihood of principal loss, Vault implements the foll
 * **Unusual Behavior Detection:** Monitor the price of stablecoins and rebalance out if unusual behavior is detected.
 * **Yield Enhancement:** Execute arbitrage opportunities between the lending and borrowing rates of two stable pairs.
 * **Cross-chain:** Expand reach to other blockchains, allowing for a wider universe of deposit assets and yield opportunities.
-
-## Realms
-
-DAOs using [Realms](https://realms.today/realms) can easily access our risk-managed Vault. Simply create a new proposal and:
-
-1. Select either the `"Castle: Deposit into Vault"` or `"Castle: Withdraw from Vault"`
-2. Select a `Source account`: the SPL token account from which to send tokens. This will be either the Deposit Asset (e.g. USDC) or the LP token
-3. Select a `Castle Vault Destination:` The actual Vault you will be depositing into or withdrawing from.
-4. Enter an `Amount`: the amount of SPL token to deposit or withdraw.
-
-![https://realms.today/realms](<../.gitbook/assets/Screen Shot 2022-05-10 at 2.51.13 PM.png>)
-
-
-
-Additionally, here is a walkthrough video with more detailed steps:
-
-{% embed url="https://www.loom.com/share/3af02f31ec60403e9cfba1a5554e73a6" %}

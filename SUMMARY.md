@@ -4,8 +4,9 @@
 
 ## Getting Started
 
-* [Realms for DAOs](getting-started/realms-for-daos.md)
 * [Castle App](getting-started/castle-app.md)
+* [Realms for DAOs](getting-started/realms-for-daos.md)
+* [Wallet View](getting-started/wallet-view.md)
 
 ## Products
 

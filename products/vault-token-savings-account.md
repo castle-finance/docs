@@ -6,7 +6,13 @@ description: Vault provides the safest yield for risk-conscious DAOs and their c
 
 ### What is the Vault?
 
-The Castle Vault is a token savings account that safely earns yield across the Solana ecosystem, similar to a money market fund in traditional finance. Minimizing risk of principal loss is prioritized over maximizing returns. DAOs utilize Vault for various goals, from funding operating expenditures to growing corporate savings accounts and protocol insurance funds.&#x20;
+The Castle Vault is a **token savings account** that safely earns yield across the Solana ecosystem, similar to a money market fund in traditional finance. It's built with three principles in mind:
+
+1. **Principal Preservation** – Risk management measures are implemented that prioritize safety.
+2. **Yield** – Vault autonomously rebalances across different lending markets to optimize returns.
+3. **Instant Liquidity** – Users can seamlessly deposit and withdraw into Vault with no lockup periods.
+
+Minimizing risk of principal loss is prioritized over maximizing returns. DAOs utilize Vault for various goals, from funding operating expenditures to growing corporate savings accounts and protocol insurance funds.&#x20;
 
 When stablecoins are deposited into Vault, they are forwarded to a diversified set of yield-earning sources. Every minute, the contract rebalances between sources to optimize the yield earned. Vault is built on top of the most reputable lending primitives in the Solana ecosystem.&#x20;
 

@@ -5,7 +5,7 @@
 ## Getting Started
 
 * [Castle App](getting-started/castle-app.md)
-* [Realms for DAOs](getting-started/realms-for-daos.md)
+* [Realms Integration for DAOs](getting-started/realms-integration-for-daos.md)
 * [Wallet View](getting-started/wallet-view.md)
 
 ## Products

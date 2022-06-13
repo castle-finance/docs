@@ -16,8 +16,8 @@ If you run into transaction size limits (for example: sending transactions as pa
 
 Here's the full list of instructions the vault contract expects:
 
-1. `refresh`: Refreshes the vaults accounts
-2. `reconcile`: Withdraws from the underlying lending markets to allow a user to withdraw
+1. `refresh`: (permissionless) Refreshes the vaults accounts
+2. `reconcile`: (permissionless) Withdraws from the underlying lending markets to allow a user to withdraw
 3. `deposit`: Sends reserve token (e.g. USDC) assets into the vault in exchange for LP tokens
 4. `withdraw`: Sends LP tokens into the vault in exchange for reserve token assets
 
